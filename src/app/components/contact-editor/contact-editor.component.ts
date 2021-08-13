@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { interval } from 'rxjs';
+import { ContactsService } from 'src/app/services/contact.service';
 import { environment } from 'src/environments/environment';
 import { Contact } from '../../models/contact';
 
@@ -16,7 +17,7 @@ export class ContactEditorComponent implements OnInit {
   private _url: string = environment.api_url;
 
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private route:Router) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private route:Router, private _list:ContactsService) { }
   profileForm = this.fb.group({
     firstname: [''],
     lastname: [''],
@@ -30,13 +31,8 @@ export class ContactEditorComponent implements OnInit {
     email: [''],
   });
 
-  
   onSubmit() {
-    this.http.post(this._url+'/contact', this.profileForm.value)
-    .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error),
-    )
+   this._list.createContact(this.profileForm.value) 
   }
   isChange:boolean = true
 

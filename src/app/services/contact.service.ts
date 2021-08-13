@@ -21,5 +21,12 @@ export class ContactsService {
         return this.apiCaller
             .request('DELETE',this._url+'contact/'+id)
     }
+    createContact(contact){
+        this.apiCaller.post(this._url+'/contact', contact)
+        .subscribe(
+          (response) => console.log(response),
+          (error) => console.log(error),
+        )
+    }
 }
 
