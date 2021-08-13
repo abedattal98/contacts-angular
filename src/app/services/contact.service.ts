@@ -1,32 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { SnackbarService } from './snackbar.service';
 
 @Injectable()
 export class ContactsService {
     private _url: string = environment.api_url;
-    id:string
+    id: string
+    durationInSeconds = 5;
 
-    constructor(private apiCaller: HttpClient) {
+
+    constructor(private apiCaller: HttpClient, private route: Router, private sb: SnackbarService) {
     }
-    getContacts () {
+
+    getContacts() {
         return this.apiCaller
-            .request('GET', this._url+'contact')
+            .request('GET', this._url + 'contact')
     }
-    getContact (id) {
+    getContact(id) {
         return this.apiCaller
-            .request('GET',this._url+'contact/'+id)
+            .request('GET', this._url + 'contact/' + id)
     }
-    deleteContact (id) {
+    deleteContact(id) {
         return this.apiCaller
-            .request('DELETE',this._url+'contact/'+id)
+            .request('DELETE', this._url + 'contact/' + id)
     }
-    createContact(contact){
-        this.apiCaller.post(this._url+'/contact', contact)
-        .subscribe(
-          (response) => console.log(response),
-          (error) => console.log(error),
-        )
+    createContact(contact) {
+        this.apiCaller.post(this._url + '/contact', contact)
+            .subscribe(
+
+                (response) => {
+                    console.log(response)
+                    this.route.navigate(['../']);
+                    this.sb.success('Contact created Succesufully')
+                },
+                (error) => {
+                    console.log(error)
+                    this.sb.error('error!')
+                },
+            )
     }
 }
 

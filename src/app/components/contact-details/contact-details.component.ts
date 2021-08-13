@@ -10,23 +10,16 @@ import { Contact } from '../../models/contact';
 })
 export class ContactDetailsComponent implements OnInit {
   id =null
-  contact: Contact[];
+  contact: Contact;
 
   constructor(private route: ActivatedRoute, private _list: ContactsService) {  }
 
-  // getContactDetail(q) {
-  //   return this._list.getContact(q).subscribe((data: any) => {
-  //    console.warn(this.contact = data)
-  //   })
-  // }
   getContact(id:string) {
     return this._list.getContact(id).subscribe((data: any) => {
       console.log(this.contact=data)
     })
   }
   
-
-
   ngOnInit(): void {
       this.id = this.route.snapshot.paramMap.get('id')
       console.log(this.id)
