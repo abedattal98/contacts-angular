@@ -12,13 +12,13 @@ import { ContactsService } from 'src/app/services/contact.service';
 export class ContactListComponent implements OnInit {
   Contacts: Contact[];
   id: string
-  constructor(private _list: ContactsService, private route: Router) { }
+  constructor(private _list: ContactsService) { }
 
   getContactsData() {
     return this._list.getContacts()
       .subscribe((data: any) => { this.Contacts = data; });
   }
-  
+
   deleteContact(id) {
     return this._list.deleteContact(id)
       .subscribe(() => this.getContactsData());

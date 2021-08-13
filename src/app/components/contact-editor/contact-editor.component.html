@@ -1,17 +1,44 @@
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <label for="first-name">First Name: </label>
     <input id="first-name" type="text" formControlName="firstname">
-  
+
     <label for="last-name">Last Name: </label>
     <input id="last-name" type="text" formControlName="lastname">
-      
+
     <label for="phone">Last Name: </label>
-    <input id="phone" type="text" formControlName="phone">  
+    <input id="phone" type="text" formControlName="phone">
 
     <label for="email">Last Name: </label>
     <input id="email" type="email" formControlName="email">
-    <!-- <button *ngIf=!isChange type="submit" >Submittttttt</button> -->
-    <button mat-flat-button *ngIf=!isChange  color="basic">Primary</button>
-    <button mat-flat-button *ngIf=isChange  color="accent"  >Primary</button>
-    
-</form>
+    <button mat-flat-button *ngIf=!isChange color="basic">Primary</button>
+    <button mat-flat-button *ngIf=isChange color="accent">Primary</button>
+
+</form> -->
+<div class="example-container">
+    <div class="form-container">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+            <mat-form-field class="form-field example-full-width" appearance="outline" >
+                <mat-label> First Name
+                </mat-label>
+                <input matInput formControlName="firstname"  >
+            </mat-form-field>
+            <mat-form-field class="form-field example-full-width" appearance="outline">
+                <mat-label> Last Name
+                </mat-label>
+                <input matInput formControlName="lastname" >
+            </mat-form-field>
+            <mat-form-field class="form-field example-full-width" appearance="outline">
+                <mat-label> Phone
+                </mat-label>
+                <input matInput formControlName="phone" >
+            </mat-form-field>
+            <mat-form-field class="form-field example-full-width" appearance="outline">
+                <mat-label> E-mail
+                </mat-label>
+                <input matInput formControlName="email" >
+            </mat-form-field>
+            <button mat-flat-button *ngIf=!isChange color="accent">Create</button>
+            <button mat-flat-button *ngIf=isChange disabled>Create</button>
+        </form>
+    </div>
+</div>

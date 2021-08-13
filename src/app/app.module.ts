@@ -11,6 +11,9 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 import { ContactsService } from './services/contact.service';
 import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
 import {MatButtonModule} from '@angular/material/button';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from  '@angular/material/input'
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -25,8 +28,10 @@ import {MatButtonModule} from '@angular/material/button';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MatButtonModule
-
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatToolbarModule
   ],
   providers: [ContactsService],
   bootstrap: [AppComponent]
