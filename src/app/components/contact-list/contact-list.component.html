@@ -1,0 +1,13 @@
+<table><tr *ngFor="let contact of Contacts">
+    <th scope="row">{{contact.id}}</th>
+    <td>{{contact.firstname}} {{contact.lastname}}</td>
+    <td>{{contact.email}}</td>
+    <td>{{contact.phone}}</td>
+    <td class="text-center action-block">
+      <span class="mr-2 btn btn-outline-primary btn-sm" routerLink="/edit-contact/{{contact.id}}">Edit</span> 
+      <span class="mr-2 btn btn-outline-primary btn-sm"  routerLink="{{contact.id}}">Details</span> 
+      <span class="btn btn-outline-danger btn-sm" (click)="deleteContact(contact.id)">Delete</span>
+    </td>
+    <button mat-raised-button [disabled]="review_btn" mat-button >Save</button>
+
+</tr></table>

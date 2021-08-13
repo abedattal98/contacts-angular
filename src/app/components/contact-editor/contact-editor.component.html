@@ -1,0 +1,17 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstname">
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastname">
+      
+    <label for="phone">Last Name: </label>
+    <input id="phone" type="text" formControlName="phone">  
+
+    <label for="email">Last Name: </label>
+    <input id="email" type="email" formControlName="email">
+    <!-- <button *ngIf=!isChange type="submit" >Submittttttt</button> -->
+    <button mat-flat-button *ngIf=!isChange  color="basic">Primary</button>
+    <button mat-flat-button *ngIf=isChange  color="accent"  >Primary</button>
+    
+</form>
