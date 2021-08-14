@@ -37,8 +37,12 @@
                 </mat-label>
                 <input matInput formControlName="email" >
             </mat-form-field>
-            <button mat-flat-button *ngIf=!isChange color="accent">Create</button>
-            <button mat-flat-button *ngIf=isChange disabled>Create</button>
+            <button mat-flat-button *ngIf=!isChange&&!isAddMode color="accent">Edit</button>
+            <button mat-flat-button *ngIf=!isChange&&isAddMode color="accent">Create</button>
+
+            <button mat-flat-button *ngIf=isChange&&!isAddMode disabled>Edit</button>
+            <button mat-flat-button *ngIf=isChange&&isAddMode disabled>Create</button>
+
         </form>
     </div>
 </div>

@@ -28,19 +28,34 @@ export class ContactsService {
             .request('DELETE', this._url + 'contact/' + id)
     }
     createContact(contact) {
-        this.apiCaller.post(this._url + '/contact', contact)
-            .subscribe(
+        return this.apiCaller.post(this._url + '/contact', contact)
+            // .subscribe(
 
-                (response) => {
-                    console.log(response)
-                    this.route.navigate(['../']);
-                    this.sb.success('Contact created Succesufully')
-                },
-                (error) => {
-                    console.log(error)
-                    this.sb.error('error!')
-                },
-            )
+            //     (response) => {
+            //         console.log(response)
+            //         this.route.navigate(['../']);
+            //         this.sb.success('Contact created Succesufully')
+            //     },
+            //     (error) => {
+            //         console.log(error)
+            //         this.sb.error('error!')
+            //     },
+            // )
+    }
+    updateContact(id,contact) {
+      return  this.apiCaller.put<any>(this._url + 'contact/'+id, contact)
+            // .subscribe(
+
+            //     (response) => {
+            //         console.log(response)
+            //         this.route.navigate(['../']);
+            //         this.sb.success('Contact created Succesufully')
+            //     },
+            //     (error) => {
+            //         console.log(error)
+            //         this.sb.error('error!')
+            //     },
+            // )
     }
 }
 

@@ -17,12 +17,14 @@ export class ContactListComponent implements OnInit {
 
   getContactsData() {
     return this._list.getContacts()
-      .subscribe((data: any) => { this.Contacts = data; this.sb.success("Contact Deleted Succesfully")});
+      .subscribe((data: any) => { this.Contacts = data});
   }
 
   deleteContact(id) {
     return this._list.deleteContact(id)
-      .subscribe(() => this.getContactsData());
+      .subscribe(() => {this.getContactsData()
+        this.sb.success("Contact Deleted!")
+      });
   }
 
   ngOnInit(): void {
