@@ -9,24 +9,33 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
-
 export class ContactListComponent implements OnInit {
-  Contacts: Contact[];
+  isLoading:boolean=false
+  displayedColumns: string[] = ['position', 'firstname', 'lastname', 'phone','email','edit'];
+  Contacts: Contact
   id: string
-  constructor(private _list: ContactsService, private sb:SnackbarService) { }
+  constructor(private _list: ContactsService, private sb:SnackbarService, private route:Router) { }
 
   getContactsData() {
     return this._list.getContacts()
-      .subscribe((data: any) => { this.Contacts = data});
+      .subscribe((data: any) => { 
+        this.Contacts = data
+        this.isLoading=true
+      },
+      error => {
+        alert(error)
+        console.log(error);
+      });
+      
   }
 
   deleteContact(id) {
     return this._list.deleteContact(id)
-      .subscribe(() => {this.getContactsData()
+      .subscribe(() => {
+        this.getContactsData()
         this.sb.success("Contact Deleted!")
-      });
+      });  
   }
-
   ngOnInit(): void {
     this.getContactsData()
   }

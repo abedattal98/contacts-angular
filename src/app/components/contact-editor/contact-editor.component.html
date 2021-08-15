@@ -1,22 +1,8 @@
-<!-- <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-    <label for="first-name">First Name: </label>
-    <input id="first-name" type="text" formControlName="firstname">
-
-    <label for="last-name">Last Name: </label>
-    <input id="last-name" type="text" formControlName="lastname">
-
-    <label for="phone">Last Name: </label>
-    <input id="phone" type="text" formControlName="phone">
-
-    <label for="email">Last Name: </label>
-    <input id="email" type="email" formControlName="email">
-    <button mat-flat-button *ngIf=!isChange color="basic">Primary</button>
-    <button mat-flat-button *ngIf=isChange color="accent">Primary</button>
-
-</form> -->
-<div class="example-container">
+<h1 class="example-container form-container" *ngIf=!isShown>Loading data</h1>
+<div class="example-container" *ngIf=isShown >
     <div class="form-container">
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+            
             <mat-form-field class="form-field example-full-width" appearance="outline" >
                 <mat-label> First Name
                 </mat-label>
@@ -37,12 +23,12 @@
                 </mat-label>
                 <input matInput formControlName="email" >
             </mat-form-field>
+
             <button mat-flat-button *ngIf=!isChange&&!isAddMode color="accent">Edit</button>
             <button mat-flat-button *ngIf=!isChange&&isAddMode color="accent">Create</button>
 
             <button mat-flat-button *ngIf=isChange&&!isAddMode disabled>Edit</button>
             <button mat-flat-button *ngIf=isChange&&isAddMode disabled>Create</button>
-
         </form>
     </div>
 </div>

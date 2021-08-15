@@ -15,6 +15,12 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from  '@angular/material/input'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatCardModule} from '@angular/material/card';  
+
+
+
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +39,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatCardModule,
     ],
   providers: [ContactsService],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+p{
+    font-family: Lato;
+}
+
+.div-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+mat-card{
+    width: 40%;
+}
+
+.b1{
+    background-color:red; color:white
+}
+.b2{
+    background-color:blue; color:white
+}

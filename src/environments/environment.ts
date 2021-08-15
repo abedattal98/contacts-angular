@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api_url:'http://localhost:8000/'
+  api_url:'http://lumencontacts-env.eba-93kc8mjf.us-east-2.elasticbeanstalk.com/'
 };
 
 

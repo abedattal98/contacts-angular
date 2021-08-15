@@ -10,8 +10,7 @@ export class ContactsService {
     private _url: string = environment.api_url;
     id: string
     durationInSeconds = 5;
-
-
+    
     constructor(private apiCaller: HttpClient, private route: Router, private sb: SnackbarService) {
     }
 
@@ -29,33 +28,9 @@ export class ContactsService {
     }
     createContact(contact) {
         return this.apiCaller.post(this._url + '/contact', contact)
-            // .subscribe(
-
-            //     (response) => {
-            //         console.log(response)
-            //         this.route.navigate(['../']);
-            //         this.sb.success('Contact created Succesufully')
-            //     },
-            //     (error) => {
-            //         console.log(error)
-            //         this.sb.error('error!')
-            //     },
-            // )
     }
     updateContact(id,contact) {
       return  this.apiCaller.put<any>(this._url + 'contact/'+id, contact)
-            // .subscribe(
-
-            //     (response) => {
-            //         console.log(response)
-            //         this.route.navigate(['../']);
-            //         this.sb.success('Contact created Succesufully')
-            //     },
-            //     (error) => {
-            //         console.log(error)
-            //         this.sb.error('error!')
-            //     },
-            // )
     }
 }
 

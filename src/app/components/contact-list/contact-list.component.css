@@ -1,0 +1,14 @@
+
+table{
+  width: 100%;
+}
+h1{
+  text-align: center;
+  margin:5%
+}
+.green-btn{
+  background-color:green; color:white
+}
+.create-btn{
+   position: absolute; right: 2%;
+}
