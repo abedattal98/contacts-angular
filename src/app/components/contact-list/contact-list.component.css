@@ -9,6 +9,9 @@ h1{
 .green-btn{
   background-color:green; color:white
 }
+.btn-red{
+  background-color:red; color:white
+}
 .create-btn{
    position: absolute; right: 2%;
 }

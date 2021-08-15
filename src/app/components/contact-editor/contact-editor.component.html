@@ -23,7 +23,8 @@
                 </mat-label>
                 <input matInput formControlName="email" >
             </mat-form-field>
-
+            <button mat-flat-button color="accent" class="" routerLink='../../' class="hide">Go Back</button>
+            &nbsp;
             <button mat-flat-button *ngIf=!isChange&&!isAddMode color="accent">Edit</button>
             <button mat-flat-button *ngIf=!isChange&&isAddMode color="accent">Create</button>
 

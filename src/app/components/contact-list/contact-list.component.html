@@ -1,5 +1,4 @@
 <h1 *ngIf="!isLoading"> <br>Please wait to get your contacts</h1>
-<br>
 <button mat-flat-button color="primary" class="create-btn"routerLink="create" *ngIf="isLoading" >Create New Contact</button>
 <table mat-table [dataSource]="Contacts" class="mat-elevation-z8" *ngIf="isLoading">
 
@@ -31,7 +30,7 @@
   <ng-container matColumnDef="edit" >
     <tr > <th mat-header-cell *matHeaderCellDef></th></tr>
     <tr> <td mat-cell *matCellDef="let contact">
-       <button mat-flat-button color="primary" routerLink="edit/{{contact.id}}">Edit</button><button mat-flat-button class="green-btn" routerLink="{{contact.id}}">Details</button><button mat-flat-button color="accent" (click)="deleteContact(contact.id)"> Delete</button>
+       <button mat-flat-button color="primary" routerLink="edit/{{contact.id}}">Edit</button><button mat-flat-button class="green-btn" routerLink="{{contact.id}}">Details</button><button mat-flat-button class="btn-red" (click)="deleteContact(contact.id)"> Delete</button>
       </td> </tr>
   </ng-container>
 

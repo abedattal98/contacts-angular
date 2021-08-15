@@ -12,13 +12,10 @@
     </mat-card-content>
   
     <mat-card-actions>
-      <button mat-button class="b2"  routerLink="../edit/{{contact.id}}" >
-        EDIT
-      </button>
-  
-      <button mat-button class="b1" (click)="deleteContact(contact.id)">
-        DELETE
-      </button>
+      <button mat-flat-button color="accent" routerLink='../../' class="hide" >Go Back</button>
+      &nbsp;
+      <button mat-button class="b2"  routerLink="../edit/{{contact.id}}" >EDIT</button>
+      <button mat-button class="b1" (click)="deleteContact(contact.id)">DELETE</button>
     </mat-card-actions>
   </mat-card>
 </div>
